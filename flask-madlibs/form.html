@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Form</title>
+</head>
+<body>
+    <h1>Fill in the blanks to create your story!</h1>
+    <form action="/story" method="POST">
+        {% for placeholder in placeholders %}
+            <label for="{{ placeholder }}">{{ placeholder.replace('_', ' ').capitalize() }}:</label>
+            <input type="text" id="{{ placeholder }}" name="{{ placeholder }}" required><br><br>
+        {% endfor %}
+        <button type="submit">Generate Story</button>
+    </form>
+</body>
+</html>
